@@ -1,10 +1,11 @@
 import React from 'react';
 import logo from './status.png';
+import Button from '@mui/material/Button'
 import './App.css';
 
 
 function MyButton({ title }: { title: string }) {
-  return <button>{title}</button>;
+  return <Button variant="contained">{title}</Button>;
 }
 
 export default function App() {
@@ -23,7 +24,7 @@ export default function App() {
         >
           Learn React
         </a>
-        <MyButton title="Click me" />
+        <MyButton title="Oguri as in Peak" />
       </header>
     </div>
   );
