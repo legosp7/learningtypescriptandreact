@@ -1,8 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './status.png';
 import './App.css';
 
-function App() {
+
+function MyButton({ title }: { title: string }) {
+  return <button>{title}</button>;
+}
+
+export default function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -18,9 +23,9 @@ function App() {
         >
           Learn React
         </a>
+        <MyButton title="Click me" />
       </header>
     </div>
   );
 }
 
-export default App;
