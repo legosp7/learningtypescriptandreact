@@ -1,7 +1,7 @@
 import logo from './status.png';
 import Button from '@mui/material/Button'
 import { CssBaseline } from '@mui/material';
-import { useReducer } from 'react';
+import { useReducer, useRef, useEffect } from 'react';
 import './App.css';
 
 interface MyButtonProps {
@@ -38,14 +38,30 @@ function MyButton({ title, disabled }: MyButtonProps) {
 export default function App() {
 
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  const Wei = () => dispatch({ type: 'setCount', value: state.count + 1 });
-  const reset = () => dispatch({ type: 'reset' });
-  let audio = new Audio('/Audio/wei.mp3')
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  useEffect(() => {
+    audioRef.current = new Audio('learningtypescriptandreact/Audio/wei.mp3');
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.src = "";
+        audioRef.current.load();
+      }
+    }
+  }, []);
+
+  
   const start = () => {
-    audio.play();
+    const a = audioRef.current;
+    if (!a) return;
+    a.currentTime = 0;
+    a.play().catch(() => {});
   }
 
+  const Wei = () => dispatch({ type: 'setCount', value: state.count + 1 });
+  const reset = () => dispatch({ type: 'reset' });
 
   return (
     <div className="App">
