@@ -38,26 +38,17 @@ function MyButton({ title, disabled }: MyButtonProps) {
 export default function App() {
 
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
-  useEffect(() => {
-    audioRef.current = new Audio('learningtypescriptandreact/Audio/wei.mp3');
-
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.src = "";
-        audioRef.current.load();
-      }
-    }
-  }, []);
+  const audioRef = useRef<HTMLAudioElement>(new Audio(`${process.env.PUBLIC_URL}/Audio/wei.mp3`));
 
   
-  const start = () => {
+  const start = async () => {
     const a = audioRef.current;
-    if (!a) return;
     a.currentTime = 0;
-    a.play().catch(() => {});
+    try {
+      await a.play();
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   const Wei = () => dispatch({ type: 'setCount', value: state.count + 1 });
