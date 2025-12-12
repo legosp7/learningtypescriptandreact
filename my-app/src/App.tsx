@@ -38,18 +38,24 @@ function MyButton({ title, disabled }: MyButtonProps) {
 export default function App() {
 
   const [state, dispatch] = useReducer(stateReducer, initialState);
-  const audioRef = useRef<HTMLAudioElement>(new Audio(`${process.env.PUBLIC_URL}/Audio/wei.mp3`));
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  
+  // create once (lazy init)
+  if (audioRef.current === null) {
+    audioRef.current = new Audio(`${process.env.PUBLIC_URL}/Audio/wei.mp3`);
+    audioRef.current.preload = "auto";
+  }
+
   const start = async () => {
-    const a = audioRef.current;
+    const a = audioRef.current!;
     a.currentTime = 0;
     try {
       await a.play();
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      console.error("play() failed:", err);
+      alert(String(err)); // temporary: helps you see if it's blocked
     }
-  }
+  };
 
   const Wei = () => dispatch({ type: 'setCount', value: state.count + 1 });
   const reset = () => dispatch({ type: 'reset' });
@@ -73,7 +79,7 @@ export default function App() {
         <a><MyButton title="Oguri as in Peak" disabled={false} /></a>
         <p>Count: {state.count}</p>
         <div className="buttons" style={{ display: 'flex', gap: '10px' }}>
-          <Button variant="contained" onClick={() => {Wei(); start();}}>Wei!</Button>
+          <Button variant="contained" onClick={() => { start(); Wei();}}>Wei!</Button>
           <Button variant="contained" onClick={() => {reset();}}>Reset</Button>
         </div>
         
