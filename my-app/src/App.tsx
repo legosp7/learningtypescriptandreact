@@ -66,7 +66,7 @@ export default function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Loading...
         </p>
         <a
           className="App-link"
@@ -74,9 +74,9 @@ export default function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <MyButton title="Oguri as in Peak" disabled={false} />
         </a>
-        <a><MyButton title="Oguri as in Peak" disabled={false} /></a>
+        
         <p>Count: {state.count}</p>
         <div className="buttons" style={{ display: 'flex', gap: '10px' }}>
           <Button variant="contained" onClick={() => { start(); Wei();}}>Wei!</Button>
