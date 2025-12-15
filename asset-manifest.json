@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/learningtypescriptandreact/static/css/main.f855e6bc.css",
-    "main.js": "/learningtypescriptandreact/static/js/main.ce65c121.js",
+    "main.js": "/learningtypescriptandreact/static/js/main.c9e14da1.js",
     "static/js/453.117b0875.chunk.js": "/learningtypescriptandreact/static/js/453.117b0875.chunk.js",
     "static/media/status.png": "/learningtypescriptandreact/static/media/status.268a0d30a70b19063d19.png",
     "index.html": "/learningtypescriptandreact/index.html",
     "main.f855e6bc.css.map": "/learningtypescriptandreact/static/css/main.f855e6bc.css.map",
-    "main.ce65c121.js.map": "/learningtypescriptandreact/static/js/main.ce65c121.js.map",
+    "main.c9e14da1.js.map": "/learningtypescriptandreact/static/js/main.c9e14da1.js.map",
     "453.117b0875.chunk.js.map": "/learningtypescriptandreact/static/js/453.117b0875.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.ce65c121.js"
+    "static/js/main.c9e14da1.js"
   ]
 }
