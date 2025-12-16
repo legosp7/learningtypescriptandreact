@@ -66,15 +66,15 @@ export default function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Loading...
+          Page Under Construction...
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://www.youtube.com/watch?v=6vwFnKLamKY"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <MyButton title="Oguri as in Peak" disabled={false} />
+          <MyButton title="Mambo" disabled={false} />
         </a>
         
         <p>Count: {state.count}</p>
